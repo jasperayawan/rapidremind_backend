@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const conn = require('./db/connection')
 
 const authRoute = require('./routes/auth')
+const noteRoute = require('./routes/note')
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({
 
 
 app.use('/api/user', authRoute);
+app.use('/api/note', noteRoute);
 
 app.listen(port, () => {
     conn();
